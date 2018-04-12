@@ -1,0 +1,25 @@
+[[source]]
+
+url = "https://pypi.python.org/simple"
+verify_ssl = true
+name = "pypi"
+
+
+[packages]
+# list your dependencies here (arrow can be removed)
+arrow = "*"
+
+
+[dev-packages]
+
+pytest-mock = "==1.6.3"
+pytest = "*"
+pytest-xdist = "*"
+pytest-cov = "*"
+pdbpp = "*"
+watchdog = "*"
+better_exceptions = "*"
+"flake8" = "*"
+mock = "*"
+bumpversion = "*"
+rstcheck = "*"

@@ -1,0 +1,22 @@
+language: python
+
+matrix:
+  include:
+  - python: "3.5"
+  - python: "3.6"
+
+install:
+  - pip install -U pipenv
+  - pipenv run python setup.py install
+  - pipenv install --dev
+
+script:
+  - pipenv run flake8 hello_python
+  - pipenv run pytest -v
+  - pipenv run pytest --cov=hello_python
+  - pipenv run rstcheck README.md
+  - pipenv run rstcheck CHANGELOG.md
+
+after_success:
+  - pipenv run coveralls
+  - pipenv --rm

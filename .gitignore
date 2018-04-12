@@ -1,0 +1,39 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+
+# Distribution / packaging
+env/
+.venv/
+.env/
+build/
+dist/
+eggs/
+sdist/
+target/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Unit test / coverage reports
+.tox/
+.coverage
+.cache
+.pytest_cache
+
+#Temporal files
+*~
+*#
+
+#PyCharm Project
+.idea/
+
+# MacOS
+.DS_Store
+
+# Editors
+.vscode
+.ropeproject
+
+*.sha
+*.log

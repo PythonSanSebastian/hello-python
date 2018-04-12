@@ -1,0 +1,55 @@
+---
+
+stages:
+  - test
+  - tag
+  - build
+  - deploy
+
+before_script:
+  - export PIPENV_VENV_IN_PROJECT=~/.venv/
+  - export PIPENV_NOSPIN=TRUE
+  - scripts/setup.sh -d
+
+after_script:
+  - rm -rf ${PIPENV_VENV_IN_PROJECT}
+
+lint_and_test:
+  stage: test
+  script:
+    - make lint
+    - make test
+
+
+deploy_dev:
+  stage: deploy
+  variables:
+    APP_ENV: dev
+  script:
+  only:
+    - develop
+    - /^dev_.*$/
+
+deploy_int:
+  stage: deploy
+  variables:
+    APP_ENV: int
+  script:
+  only:
+    - /^int_.*$/
+
+deploy_qa:
+  stage: deploy
+  variables:
+    APP_ENV: qa
+  script:
+  only:
+    - /^qa_.*$/
+
+deploy_prod:
+  stage: deploy
+  variables:
+    APP_ENV: prod
+  script:
+  only:
+    - /^prod_.*$/

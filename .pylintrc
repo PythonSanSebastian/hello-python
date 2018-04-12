@@ -1,0 +1,5 @@
+[MESSAGES CONTROL]
+disable=unused-argument,wrong-import-position,missing-docstring,old-style-class,ungrouped-imports,broad-except
+
+[FORMAT]
+max-line-length = 120
