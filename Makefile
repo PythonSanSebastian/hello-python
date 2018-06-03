@@ -5,12 +5,12 @@ version-string := $(shell grep '__version__ = '  $(project-name)/version.py)
 version := $(subst __version__ = ,,$(version-string))
 
 install:
-	pipenv run python setup.py install
 	pipenv install
+	pipenv run python setup.py install
 
 develop:
-	pipenv run python setup.py develop
 	pipenv install --dev --skip-lock
+	pipenv run python setup.py develop
 
 cleanall: clean-build clean-pyc clean-env
 
